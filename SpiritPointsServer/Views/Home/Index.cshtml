@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<head>
+    <script type="text/javascript">
+        @if (!ViewData.ModelState.IsValid && ViewData.ModelState["Error"].Errors.Count > 0)
+        {
+            <text>
+                alert('@ViewData.ModelState["Error"].Errors.First().ErrorMessage');
+            </text>
+        }
+    </script>
+</head>
+
+<div style="display: table;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;">
+    <form asp-controller="Home" asp-action="UploadFile" method="post"
+          enctype="multipart/form-data">
+        <input class="form-control btn btn-default" style="display:inline-block" type="file" name="file" />
+        <br />
+        <input class="form-control" type="text" style="display:inline-block" placeholder="Enter Name" name="FullName" />
+        <br />
+        <select class="form-control" style="display:inline-block" id="grade" name="grade">
+            <option value="select">Please select a grade</option>
+            <optgroup label="High School">
+                <option value="18">Class of 2018</option>
+                <option value="19">Class of 2019</option>
+                <option value="20">Class of 2020</option>
+                <option value="21">Class of 2021</option>
+            </optgroup>
+            <optgroup label="Middle School">
+                <option value="22">Class of 2022</option>
+                <option value="23">Class of 2023</option>
+            </optgroup>
+        </select>
+        <br />
+        <br />
+        <button class="btn-lg btn-primary" type="submit">Submit Image</button>
+    </form>
+</div>
