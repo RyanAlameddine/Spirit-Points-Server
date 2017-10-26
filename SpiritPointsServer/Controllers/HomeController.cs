@@ -14,7 +14,7 @@ namespace SpiritPointsServer.Controllers
 
         public IActionResult Index()
         {
-            if(Startup.error != "")
+            if (Startup.error != "")
             {
                 ModelState.AddModelError("Error", Startup.error);
                 Startup.error = "";
@@ -42,7 +42,7 @@ namespace SpiritPointsServer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UploadFile(IFormFile file, string FullName)
+        public async Task<IActionResult> UploadFile(IFormFile file)
         {
             if (file == null || file.Length == 0)
             {
@@ -50,19 +50,18 @@ namespace SpiritPointsServer.Controllers
                 return RedirectToAction("");
             }
 
-            if(FullName == null || FullName == "")
+            string name = Request.Form["name"].First();
+
+            if(name == null || name == "select")
             {
                 Startup.error = "Please enter your name";
                 return RedirectToAction("");
             }
 
-            string grade = Request.Form["grade"].First();
-
-            if(grade == null || grade == "select")
-            {
-                Startup.error = "Please select your grade";
-                return RedirectToAction("");
-            }
+            string grade = name.Remove(2);
+            string index = name.Remove(0, 2);
+            string[] names = System.IO.File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "ClassOf20" + grade + ".txt"));
+            string FullName = names[int.Parse(index)];
 
             //Make sure not duplicate
             var path = Path.Combine(
@@ -79,6 +78,8 @@ namespace SpiritPointsServer.Controllers
 
             Startup.counts[0] = (int.Parse(Startup.counts[0]) + 1).ToString();
             Startup.WriteCounts();
+
+            Startup.error = "Upload";
 
             return RedirectToAction("");
         }

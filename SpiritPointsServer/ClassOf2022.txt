@@ -1,53 +1,53 @@
-﻿Sareen "Sareen" Armenian
-Diego "Diego" Barraclough
-Emily "Emily" Battaglia
-Loran "Loran" Baxter Mercado
-Joshua "Josh" Beserra
-Andrew "Andrew" Boatman
-Isabella "Isabella" Bonfante
-Charlotte "Lotte" Brush
-David "David" Chagoyen Neumann
-Liam "Liam" Chia
-Alexander "Alex" Comer
-Adrienne "Dri" DeFaria
-Aaron "Aaron" Freedman
-Kate "Kate" Fuetterer
-Alec "Alec" Gharibian
-Alec "Alec" Guthrie
-Veronica "Veronica" Habashy
-Angela "Angie" Henderson
-Ian "Ian" Hunte
-Lori "Lori" Jang
-Jasmine "Jasmine" Jin
-Ethan "Ethan" Kim
-Timothy "Tim" Kreinberg
-Estee "Estee" Langbord
-Henry "Henry" Lindholm
-Egbert "Egbert" Liu
-Liliana "Lily" Lopez
-Lucas "Luke" Lopez
-Elliot "Eli" Marion
-Dylan "Dylan" Mealey
-Sean "Sean" Mealey
-Alex "Alex" Mirzabeigi
-Nicole "Nicole" Mirzaian
-Colin "Colin" Ng
-Jamie-Lynn "Jamie" Notley
-Isabel "Isabel" Pan
-Nathan "Nathan" Park
-Alexander "Alex" Pierce
-Sage "Sage" Remulla
-Regan "Regan" Sakai
-Nayan "Nayan" Sarma
-Dominick "Dominick" Schraeder
-Scott "Scott" Schuster
-Spencer "Spencer" Seid
-John "John" Stetson
-Destiny "Destiny" Tai
-Trinity "Trinity" Tai
-Ryan "Ryan" Tobin
-Hope "Hope" Ware
-Amadi "Amadi" Weser
-Ellen "Ellen" White
-Kendryek "Kendryek" Wu
-Leila "Leila" Wu
+﻿Sareen Armenian
+Diego Barraclough
+Emily Battaglia
+Loran Baxter Mercado
+Joshua Beserra
+Andrew Boatman
+Isabella Bonfante
+Charlotte Brush
+David Chagoyen Neumann
+Liam Chia
+Alexander Comer
+Adrienne DeFaria
+Aaron Freedman
+Kate Fuetterer
+Alec Gharibian
+Alec Guthrie
+Veronica Habashy
+Angela Henderson
+Ian Hunte
+Lori Jang
+Jasmine Jin
+Ethan Kim
+Timothy Kreinberg
+Estee Langbord
+Henry Lindholm
+Egbert Liu
+Liliana Lopez
+Lucas Lopez
+Elliot Marion
+Dylan Mealey
+Sean Mealey
+Alex Mirzabeigi
+Nicole Mirzaian
+Colin Ng
+Jamie-Lynn Notley
+Isabel Pan
+Nathan Park
+Alexander Pierce
+Sage Remulla
+Regan Sakai
+Nayan Sarma
+Dominick Schraeder
+Scott Schuster
+Spencer Seid
+John Stetson
+Destiny Tai
+Trinity Tai
+Ryan Tobin
+Hope Ware
+Amadi Weser
+Ellen White
+Kendryek Wu
+Leila Wu
