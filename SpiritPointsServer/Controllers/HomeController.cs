@@ -56,12 +56,12 @@ namespace SpiritPointsServer.Controllers
 
             string grade = name.Remove(2);
             string index = name.Remove(0, 2);
-            string[] names = System.IO.File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "ClassOf20" + grade + ".txt"));
+            string[] names = System.IO.File.ReadAllLines(Path.Combine(Startup.DataPath, "ClassOf20" + grade + ".txt"));
             string FullName = names[int.Parse(index)];
 
             //Make sure not duplicate
             var path = Path.Combine(
-                Directory.GetCurrentDirectory(), 
+                Startup.DataPath, 
                 "Pictures", 
                 "ClassOf20" + grade, 
                 FullName.Replace(' ', '_') + "." + Startup.counts[0] + Path.GetExtension(file.FileName));
@@ -97,7 +97,7 @@ namespace SpiritPointsServer.Controllers
                 return RedirectToAction("Code");
             }
 
-            string[] lines = System.IO.File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "Settings", "SecretCodes.txt"));
+            string[] lines = System.IO.File.ReadAllLines(Path.Combine(Startup.DataPath, "Settings", "SecretCodes.txt"));
             string found = "";
             for(int i = 0; i < lines.Count(); i++) {
                 if (lines[i] == "") continue;
@@ -115,16 +115,16 @@ namespace SpiritPointsServer.Controllers
                 return RedirectToAction("Code");
             }
 
-            System.IO.File.WriteAllLines(Path.Combine(Directory.GetCurrentDirectory(), "Settings", "SecretCodes.txt"), lines);
+            System.IO.File.WriteAllLines(Path.Combine(Startup.DataPath, "Settings", "SecretCodes.txt"), lines);
 
             string grade = name.Remove(2);
             string index = name.Remove(0, 2);
-            string[] names = System.IO.File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "ClassOf20" + grade + ".txt"));
+            string[] names = System.IO.File.ReadAllLines(Path.Combine(Startup.DataPath, "ClassOf20" + grade + ".txt"));
             string FullName = names[int.Parse(index)];
 
             //Make sure not duplicate
             var path = Path.Combine(
-                Directory.GetCurrentDirectory(),
+                Startup.DataPath,
                 "Pictures",
                 "ClassOf20" + grade,
                 code.Replace(' ', '_') + ".txt");

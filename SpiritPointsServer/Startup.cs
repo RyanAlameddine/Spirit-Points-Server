@@ -33,12 +33,12 @@ namespace SpiritPointsServer
         #region Counts
         void CalculateCounts()
         {
-            counts = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "Count.txt"));
+            counts = File.ReadAllLines(Path.Combine(DataPath, "Count.txt"));
         }
 
         public static void WriteCounts()
         {
-            File.WriteAllLines(Path.Combine(Directory.GetCurrentDirectory(), "Count.txt"), counts);
+            File.WriteAllLines(Path.Combine(DataPath, "Count.txt"), counts);
         }
         #endregion
 
