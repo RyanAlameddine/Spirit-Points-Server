@@ -22,19 +22,15 @@ namespace SpiritPointsServer.Controllers
             return View();
         }
 
-        //public IActionResult About()
-        //{
-        //    ViewData["Message"] = "Your application description page.";
-
-        //    return View();
-        //}
-
-        //public IActionResult Contact()
-        //{
-        //    ViewData["Message"] = "Your contact page.";
-
-        //    return View();
-        //}
+        public IActionResult Code()
+        {
+            if (Startup.error != "")
+            {
+                ModelState.AddModelError("Error", Startup.error);
+                Startup.error = "";
+            }
+            return View();
+        }
 
         public IActionResult Error()
         {
@@ -82,6 +78,62 @@ namespace SpiritPointsServer.Controllers
             Startup.error = "Upload";
 
             return RedirectToAction("");
+        }
+
+        [HttpPost]
+        public IActionResult UploadCode(string code)
+        {
+            if (code == null)
+            {
+                Startup.error = "Please enter a code";
+                return RedirectToAction("Code");
+            }
+
+            string name = Request.Form["name"].First();
+
+            if (name == null || name == "select")
+            {
+                Startup.error = "Please enter your name";
+                return RedirectToAction("Code");
+            }
+
+            string[] lines = System.IO.File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "Settings", "SecretCodes.txt"));
+            string found = "";
+            for(int i = 0; i < lines.Count(); i++) {
+                if (lines[i] == "") continue;
+                if(lines[i].Equals(code, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    found = lines[i];
+                    lines[i] = "";
+                    break;
+                }
+            }
+
+            if(found == "")
+            {
+                Startup.error = "Code not valid";
+                return RedirectToAction("Code");
+            }
+
+            System.IO.File.WriteAllLines(Path.Combine(Directory.GetCurrentDirectory(), "Settings", "SecretCodes.txt"), lines);
+
+            string grade = name.Remove(2);
+            string index = name.Remove(0, 2);
+            string[] names = System.IO.File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "ClassOf20" + grade + ".txt"));
+            string FullName = names[int.Parse(index)];
+
+            //Make sure not duplicate
+            var path = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "Pictures",
+                "ClassOf20" + grade,
+                code.Replace(' ', '_') + ".txt");
+
+            System.IO.File.WriteAllText(path, FullName);
+
+            Startup.error = "Upload";
+
+            return RedirectToAction("Code");
         }
     }
 }

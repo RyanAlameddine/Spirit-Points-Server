@@ -11,6 +11,7 @@ namespace SpiritPointsServer
     {
         public static void Main(string[] args)
         {
+            Startup.DataPath = File.ReadAllLines(Path.Combine(Directory.GetCurrentDirectory(), "DataPath.txt"))[0];
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())

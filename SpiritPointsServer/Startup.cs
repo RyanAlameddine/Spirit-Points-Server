@@ -16,6 +16,7 @@ namespace SpiritPointsServer
     {
         public static string[] counts;
         public static string error = "";
+        public static string DataPath = "";
 
         public Startup(IHostingEnvironment env)
         {

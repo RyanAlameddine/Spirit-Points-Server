@@ -6,9 +6,9 @@
     margin: 0 auto;
     width: 50%;
     text-align: center;">
-    <form asp-controller="Home" asp-action="UploadFile" method="post"
+    <form asp-controller="Home" asp-action="UploadCode" method="post"
           enctype="multipart/form-data">
-        <input class="form-control btn btn-default" style="display:inline-block" type="file" name="file" />
+        <input class="form-control btn btn-default" style="display:inline-block" type="text" name="code" placeholder="Enter Code" />
         <br />
         <br />
         <select class="form-control js-example-basic-single" style="display:inline-block" id="name" name="name">
@@ -542,16 +542,16 @@
                 <option value="2352">Luca Yeghnazar</option>
                 <option value="2353">Thomas Young</option>
             </optgroup>
-            
+
         </select>
         <br />
         <br />
-        <button class="btn-lg btn-primary" type="submit">Submit Image</button>
+        <button class="btn-lg btn-success" type="submit">Submit Code</button>
     </form>
 </div>
 <div>
     <br />
-    <div id="success" class="alert alert-success collapse" >Upload Success</div>
+    <div id="success" class="alert alert-success collapse">Code recorded successfully</div>
 </div>
 
 <!--Scripts-->
