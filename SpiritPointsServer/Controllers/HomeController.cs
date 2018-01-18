@@ -54,17 +54,16 @@ namespace SpiritPointsServer.Controllers
                 return RedirectToAction("");
             }
 
-            string grade = name.Remove(2);
-            string index = name.Remove(0, 2);
-            string[] names = System.IO.File.ReadAllLines(Path.Combine(Startup.DataPath, "ClassOf20" + grade + ".txt"));
-            string FullName = names[int.Parse(index)];
+            int period = name.IndexOf('.');
+            string grade = name.Remove(period);
+            string FullName = name.Remove(0, period+1);
 
             //Make sure not duplicate
             var path = Path.Combine(
                 Startup.DataPath, 
                 "Pictures", 
-                "ClassOf20" + grade, 
-                FullName.Replace(' ', '_') + "." + Startup.counts[0] + Path.GetExtension(file.FileName));
+                grade, 
+                FullName + "." + Startup.counts[0] + Path.GetExtension(file.FileName));
 
 
             using (var stream = new FileStream(path, FileMode.Create))
