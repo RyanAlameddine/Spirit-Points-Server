@@ -79,60 +79,60 @@ namespace SpiritPointsServer.Controllers
             return RedirectToAction("");
         }
 
-        [HttpPost]
-        public IActionResult UploadCode(string code)
-        {
-            if (code == null)
-            {
-                Startup.error = "Please enter a code";
-                return RedirectToAction("Code");
-            }
+        //[HttpPost]
+        //public IActionResult UploadCode(string code)
+        //{
+        //    if (code == null)
+        //    {
+        //        Startup.error = "Please enter a code";
+        //        return RedirectToAction("Code");
+        //    }
 
-            string name = Request.Form["name"].First();
+        //    string name = Request.Form["name"].First();
 
-            if (name == null || name == "select")
-            {
-                Startup.error = "Please enter your name";
-                return RedirectToAction("Code");
-            }
+        //    if (name == null || name == "select")
+        //    {
+        //        Startup.error = "Please enter your name";
+        //        return RedirectToAction("Code");
+        //    }
 
-            string[] lines = System.IO.File.ReadAllLines(Path.Combine(Startup.DataPath, "Settings", "SecretCodes.txt"));
-            string found = "";
-            for(int i = 0; i < lines.Count(); i++) {
-                if (lines[i] == "") continue;
-                if(lines[i].Equals(code, StringComparison.CurrentCultureIgnoreCase))
-                {
-                    found = lines[i];
-                    lines[i] = "";
-                    break;
-                }
-            }
+        //    string[] lines = System.IO.File.ReadAllLines(Path.Combine(Startup.DataPath, "Settings", "SecretCodes.txt"));
+        //    string found = "";
+        //    for(int i = 0; i < lines.Count(); i++) {
+        //        if (lines[i] == "") continue;
+        //        if(lines[i].Equals(code, StringComparison.CurrentCultureIgnoreCase))
+        //        {
+        //            found = lines[i];
+        //            lines[i] = "";
+        //            break;
+        //        }
+        //    }
 
-            if(found == "")
-            {
-                Startup.error = "Code not valid";
-                return RedirectToAction("Code");
-            }
+        //    if(found == "")
+        //    {
+        //        Startup.error = "Code not valid";
+        //        return RedirectToAction("Code");
+        //    }
 
-            System.IO.File.WriteAllLines(Path.Combine(Startup.DataPath, "Settings", "SecretCodes.txt"), lines);
+        //    System.IO.File.WriteAllLines(Path.Combine(Startup.DataPath, "Settings", "SecretCodes.txt"), lines);
 
-            string grade = name.Remove(2);
-            string index = name.Remove(0, 2);
-            string[] names = System.IO.File.ReadAllLines(Path.Combine(Startup.DataPath, "ClassOf20" + grade + ".txt"));
-            string FullName = names[int.Parse(index)];
+        //    string grade = name.Remove(2);
+        //    string index = name.Remove(0, 2);
+        //    string[] names = System.IO.File.ReadAllLines(Path.Combine(Startup.DataPath, "ClassOf20" + grade + ".txt"));
+        //    string FullName = names[int.Parse(index)];
 
-            //Make sure not duplicate
-            var path = Path.Combine(
-                Startup.DataPath,
-                "Pictures",
-                "ClassOf20" + grade,
-                code.Replace(' ', '_') + ".txt");
+        //    //Make sure not duplicate
+        //    var path = Path.Combine(
+        //        Startup.DataPath,
+        //        "Pictures",
+        //        "ClassOf20" + grade,
+        //        code.Replace(' ', '_') + ".txt");
 
-            System.IO.File.WriteAllText(path, FullName);
+        //    System.IO.File.WriteAllText(path, FullName);
 
-            Startup.error = "Upload";
+        //    Startup.error = "Upload";
 
-            return RedirectToAction("Code");
-        }
+        //    return RedirectToAction("Code");
+        //}
     }
 }
