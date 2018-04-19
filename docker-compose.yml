@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  spiritpointsserver:
+    image: spiritpointsserver
+    build:
+      context: .
+      dockerfile: SpiritPointsServer/Dockerfile
