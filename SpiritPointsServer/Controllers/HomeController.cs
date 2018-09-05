@@ -48,9 +48,17 @@ namespace SpiritPointsServer.Controllers
 
             string name = Request.Form["name"].First();
 
-            if(name == null || name == "select")
+            if (name == null || name == "select")
             {
                 Startup.error = "Please enter your name";
+                return RedirectToAction("");
+            }
+
+            string Event = Request.Form["Event"].First();
+
+            if (Event == null || Event == "select")
+            {
+                Startup.error = "Please select an Event";
                 return RedirectToAction("");
             }
 
@@ -63,7 +71,7 @@ namespace SpiritPointsServer.Controllers
                 Startup.DataPath, 
                 "Pictures", 
                 grade, 
-                FullName + "." + Startup.counts[0] + Path.GetExtension(file.FileName));
+                FullName + "." + Event + "." + Startup.counts[0] + Path.GetExtension(file.FileName));
 
 
             using (var stream = new FileStream(path, FileMode.Create))

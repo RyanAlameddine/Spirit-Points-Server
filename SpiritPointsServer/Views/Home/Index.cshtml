@@ -11,12 +11,21 @@
 		<input class="form-control btn btn-default" style="display:inline-block" type="file" name="file" />
 		<br />
 		<br />
+		<select class="form-control js-example-basic-single" style="display:inline-block" id="event" name="event">
+			<option value="select">Event</option>
+			<option value="Birthday">Birthday Selfie</option>
+			<option value="Sports">Sports Event</option>
+			<option value="Drive">Drive</option>
+			<option value="Other">Other</option>
+		</select>
+		<br />
+		<br />
 		<select class="form-control js-example-basic-single" style="display:inline-block" id="name" name="name">
 			<option value="select">Full Name</option>
 
 			<!--REPLACE INFORMATION BETWEEN THESE MESSAGES-->
-
-			<optgroup label="Middle">
+			
+			<optgroup label="Middle">				
 				<option value="Middle.Sareen Armenian">Sareen Armenian</option>
 				<option value="Middle.Diego Barraclough">Diego Barraclough</option>
 				<option value="Middle.Emily Battaglia">Emily Battaglia</option>
@@ -545,8 +554,8 @@
 		<br />
 		<button class="btn-lg btn-primary" type="submit">Submit Image</button>
 	</form>
-</div>
-<div>
+	</div>
+	<div>
 	<br />
 	<div id="success" class="alert alert-success collapse">Upload Success</div>
 </div>
