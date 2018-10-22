@@ -19,6 +19,15 @@ namespace SpiritPointsServer.Controllers
                 ModelState.AddModelError("Error", Startup.error);
                 Startup.error = "";
             }
+
+            if (Request.Cookies.ContainsKey("lastSubmitted"))
+            {
+                ViewData.Add("LastSubmitted", Request.Cookies["lastSubmitted"]);
+            }
+            else
+            {
+                ViewData.Add("LastSubmitted", "Last Submitted: Never");
+            }
             return View();
         }
 
@@ -84,7 +93,21 @@ namespace SpiritPointsServer.Controllers
 
             Startup.error = "Upload";
 
+            SetCookie("lastSubmitted", $"Last Submitted: {DateTime.Now.ToString("MM/dd/yyyy")} at {DateTime.Now.ToString("h:mm tt")}", 100);
+
             return RedirectToAction("");
+        }
+
+        void SetCookie(string key, string value, int? expireTime)
+        {
+            CookieOptions option = new CookieOptions();
+
+            if (expireTime.HasValue)
+                option.Expires = DateTime.Now.AddMinutes(expireTime.Value);
+            else
+                option.Expires = DateTime.Now.AddMilliseconds(10);
+
+            Response.Cookies.Append(key, value, option);
         }
 
         //[HttpPost]
